@@ -69,18 +69,7 @@ pip install -r requirements.txt
 Make sure you have your LambdaTest credentials with you to run test automation scripts. You can get these credentials from the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/build/?utm_source=github&utm_medium=repo&utm_campaign=robot-selenium-sample) or by your [LambdaTest Profile](https://accounts.lambdatest.com/login/?utm_source=github&utm_medium=repo&utm_campaign=robot-selenium-sample).
 
 **Step 5:** Set LambdaTest **Username** and **Access Key** in environment variables.
-
-* For **Linux/macOS**:
-  
-  ```bash
-  export LT_USERNAME="YOUR_USERNAME" 
-  export LT_ACCESS_KEY="YOUR ACCESS KEY"
-  ```
-  * For **Windows**:
-  ```bash
-  set LT_USERNAME="YOUR_USERNAME" 
-  set LT_ACCESS_KEY="YOUR ACCESS KEY"
-  ```
+Replace LT_USERNAME and LT_ACCESS_KEY with your Lambdatest Username and Access Token in Common.robot file
 
 ## Run Your First Test
 
@@ -89,21 +78,10 @@ Make sure you have your LambdaTest credentials with you to run test automation s
 
 You can generate capabilities for your test requirements with the help of our [Desired Capability Generator](https://www.lambdatest.com/capabilities-generator/?utm_source=github&utm_medium=repo&utm_campaign=robot-selenium-sample).
 
-### Executing the Test 
 
-**Step 6:** Please execute the command below to run your tests:
-```bash
-Please execute the command below to run your tests:
-```
-Your test results would be displayed on the test console (or command-line interface if you are using terminal/cmd) and on LambdaTest automation dashboard. [LambdaTest Automation Dashboard](https://automation.lambdatest.com/build/?utm_source=github&utm_medium=repo&utm_campaign=robot-selenium-sample) will help you view all your text logs, screenshots and video recording for your entire automation tests.
+Navigate to Tests
 
-## Running Your Parallel Tests Using Robot 
-
-To run parallel tests using TestNG, execute the below commands in the terminal:
-
-```bash
-make run_all_in_parallel
-```
+robot sample_test.robot
 
 # Testing Locally Hosted Or Privately Hosted Projects
 
