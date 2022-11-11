@@ -1,34 +1,21 @@
 *** Settings ***
-Library  Selenium2Library
-Library  LambdaTestStatus.py
-
+Library  AppiumLibrary
 *** Variables ***
-
-@{_tmp}
-    ...  browserName: ${browserName},
-    ...  platform: ${platform},
-    ...  version: ${version},
-    ...  visual: ${visual},
-    ...  network: ${network},
-    ...  console: ${console},
-    ...  name: RobotFramework Lambda Test
-
-${BROWSER}          ${ROBOT_BROWSER}
-${CAPABILITIES}     ${EMPTY.join(${_tmp})}
-${REMOTE_URL}       http://%{LT_USERNAME}:%{LT_ACCESS_KEY}@hub.lambdatest.com/wd/hub
+${username}
+${accesskey}
+${REMOTE_URL}       https://LT_USERNAME:LT_ACCESS_KEY@mobile-hub.lambdatestinternal.com/wd/hub
 ${TIMEOUT}          3000
-
 *** Keywords ***
-
-Open test browser
-    [Timeout]   ${TIMEOUT}
-    Open browser  https://lambdatest.github.io/sample-todo-app/  browser=${BROWSER}
-    ...  remote_url=${REMOTE_URL}
-    ...  desired_capabilities=${CAPABILITIES}
-
-Close test browser
-    Run keyword if  '${REMOTE_URL}' != ''
-    ...  Report Lambdatest Status
-    ...  ${TEST_NAME} 
-    ...  ${TEST_STATUS} 
-    Close all browsers
+Open test app
+    &{LT_Options}    Create Dictionary
+    ...    isRealMobile=true
+    ...    platformVersion=12
+    ...    deviceName=Pixel 6
+    ...    app=APP_URL
+    ...    w3c=true
+    ...    platformName=Android
+    &{DESIRED_CAPABILITIES}    Create Dictionary
+    ...    LT:Options=&{LT_Options}
+    Open Application  remote_url=${REMOTE_URL}  desired_capabilities=${DESIRED_CAPABILITIES}
+Close test app
+    Close Application

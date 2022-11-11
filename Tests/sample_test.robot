@@ -2,22 +2,28 @@
 
 Resource  ../Resources/Common.robot
 
-Test Setup  Common.Open test browser
-Test Teardown  Common.Close test browser
+Test Setup  Common.Open test app
+Test Teardown  Common.Close test app
  
 *** Variables ***
+${TIMEOUT}          3000
 
 *** Test Cases ***
 
-Example of connecting to Lambdatest via Robot Framework 
+Example of connecting to Lambdatest via Robot Framework
 	[Timeout]   ${TIMEOUT}
-	Page should contain element  name:li1
-	Page should contain element  name:li2
-
-	Click button  name:li1	
-	Click button  name:li2	
+	Click element  id=color
+	Click element  id=Text
+	Click element  id=toast
 		
-	Input text  id:sampletodotext  Yey Let's add it to list
-	Click button  id:addbutton
-	${response}    Get Text    xpath=/html/body/div/div/div/ul/li[6]/span
-	Should Be Equal As Strings    ${response}    Yey Let's add it to list
+	Click element  id=notification
+	Click element  id=geoLocation
+	Sleep	2 seconds
+	Click element  id=Home
+	Sleep	2 seconds
+	Click element  id=speedTest
+	Sleep	2 seconds
+
+	Click element  id=Browser
+	Input Text   id=url	https://lambdatest.com
+	Click element  id=find
