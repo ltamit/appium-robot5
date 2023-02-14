@@ -3,7 +3,7 @@ Library  AppiumLibrary
 *** Variables ***
 ${username}
 ${accesskey}
-${REMOTE_URL}       https://LT_USERNAME:LT_ACCESS_KEY@mobile-hub.lambdatestinternal.com/wd/hub
+${REMOTE_URL}       https://LT_USERNAME:LT_ACCESS_KEY@mobile-hub.lambdatest.com/wd/hub
 ${TIMEOUT}          3000
 *** Keywords ***
 Open test app
